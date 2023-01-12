@@ -24,13 +24,14 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void updateProduct(String id, Product product) {
+    public Product updateProduct(String id, Product product) {
         Product newProduct = productRepository.findById(id).get();
         newProduct.setId(id);
         newProduct.setName(product.getName());
         newProduct.setDescription(product.getDescription());
         newProduct.setPrice(product.getPrice());
         productRepository.save(newProduct);
+        return newProduct;
     }
 
     @Override
