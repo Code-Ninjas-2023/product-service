@@ -9,4 +9,6 @@ public interface ProductService {
     Product addProduct (Product product);
 
     List<Product> getAllProducts ();
+
+    void updateProduct(String id, Product product);
 }
