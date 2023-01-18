@@ -1,8 +1,0 @@
-com/codeninjas/productservice/ProductServiceApplication.class
-com/codeninjas/productservice/service/ProductServiceImpl.class
-com/codeninjas/productservice/repository/ProductRepository.class
-com/codeninjas/productservice/exception/ProductException.class
-com/codeninjas/productservice/constants/AppConstants.class
-com/codeninjas/productservice/service/ProductService.class
-com/codeninjas/productservice/controller/ProductController.class
-com/codeninjas/productservice/domain/Product.class
