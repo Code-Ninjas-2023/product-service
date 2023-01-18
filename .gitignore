@@ -23,12 +23,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+#project
+*.project
 .DS_Store
 
 product-service.iml
 .idea/
-
 target/
-
 .classpath
 .settings/
