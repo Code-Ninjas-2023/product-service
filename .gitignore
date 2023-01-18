@@ -25,7 +25,10 @@ hs_err_pid*
 
 .DS_Store
 
-*.idea
-*.iml
+product-service.iml
+.idea/
 
-/target/surefire-reports
+target/
+
+.classpath
+.settings/
