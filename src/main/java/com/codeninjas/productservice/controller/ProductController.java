@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -41,7 +42,7 @@ private final ProductService productService;
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product){
+    public Product createProduct(@Valid @RequestBody Product product){
         return productService.addProduct(product);
     }
 
