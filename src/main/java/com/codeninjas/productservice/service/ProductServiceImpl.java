@@ -24,16 +24,7 @@ public class ProductServiceImpl implements ProductService{
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
-//    private static List<Product> products = new ArrayList<>();
-//
-//    private static int productsCount = 0;
-//
-//    static {
-//        products.add(new Product("Nati","pen" ,5.54));
-//        products.add(new Product(++productsCount, "Neba","pencil" ,5.54));
-//        products.add(new Product(++productsCount, "Mahi","Chair" ,5.54));
-//
-//    }
+
 
     @Override
     public Product updateProduct(String id, Product product) {
