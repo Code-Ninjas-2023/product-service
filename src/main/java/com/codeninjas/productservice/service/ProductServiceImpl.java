@@ -5,6 +5,8 @@ import com.codeninjas.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,6 +24,7 @@ public class ProductServiceImpl implements ProductService{
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+
 
     @Override
     public Product updateProduct(String id, Product product) {

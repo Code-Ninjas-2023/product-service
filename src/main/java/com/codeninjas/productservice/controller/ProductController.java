@@ -2,10 +2,12 @@ package com.codeninjas.productservice.controller;
 
 import com.codeninjas.productservice.domain.Product;
 import com.codeninjas.productservice.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -41,7 +43,7 @@ private final ProductService productService;
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product){
+    public Product createProduct(@Valid @RequestBody Product product){
         return productService.addProduct(product);
     }
 
