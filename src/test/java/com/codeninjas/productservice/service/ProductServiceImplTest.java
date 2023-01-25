@@ -54,7 +54,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void deleteProduct() {
+    public void deleteProduct() throws ProductServiceException {
         String productId = "1123";
         willDoNothing().given(productRepository).deleteById(productId);
         productService.deleteProduct(productId);
