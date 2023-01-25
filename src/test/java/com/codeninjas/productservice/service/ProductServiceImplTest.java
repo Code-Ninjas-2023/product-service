@@ -6,6 +6,7 @@ import com.codeninjas.productservice.repository.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.*;
@@ -42,7 +44,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void updateProduct() throws ProductServiceException {
+    public void givenUpdateProductIsSuccessful() throws ProductServiceException {
         Product newProduct = new Product();
         Mockito.when(productRepository.findById(any())).thenReturn(Optional.ofNullable(product));
         newProduct.setId("1123");
@@ -54,18 +56,31 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void deleteProduct() {
+    public void givenUpdateProductThrowsException() throws ProductServiceException {
+        Mockito.when(productRepository.findById(any())).thenReturn(Optional.empty());
+        assertThrows(ProductServiceException.class, () -> { productService.updateProduct(any(), product); });
+    }
+
+    @Test
+    public void givenDeleteProductIsSuccessful() throws ProductServiceException {
         String productId = "1123";
-        willDoNothing().given(productRepository).deleteById(productId);
+        Mockito.when(productRepository.findById(any())).thenReturn(Optional.ofNullable(product));
         productService.deleteProduct(productId);
         verify(productRepository, times(1)).deleteById(productId);
     }
 
     @Test
+    public void givenDeleteProductThrowsException() throws ProductServiceException {
+        Mockito.when(productRepository.findById(any())).thenReturn(Optional.empty());
+        assertThrows(ProductServiceException.class, () -> { productService.deleteProduct(anyString()); });
+    }
+
+    @Test
     public void addProduct() {
         when(productRepository.save(any())).thenReturn(product);
-        productService.addProduct(product);
+        Product response =  productService.addProduct(product);
         verify(productRepository, times(1)).save(any());
+        assertEquals(response, product);
     }
 
     @Test

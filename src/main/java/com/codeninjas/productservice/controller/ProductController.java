@@ -27,7 +27,7 @@ private final ProductService productService;
     }
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> deleteById(@PathVariable String id) {
+    public ResponseEntity<?> deleteById(@PathVariable String id) throws ProductServiceException {
         productService.deleteProduct(id);
         return new  ResponseEntity<String>(HttpStatus.OK);
 
