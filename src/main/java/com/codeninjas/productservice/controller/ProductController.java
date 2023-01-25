@@ -1,6 +1,7 @@
 package com.codeninjas.productservice.controller;
 
 import com.codeninjas.productservice.domain.Product;
+import com.codeninjas.productservice.exception.ProductServiceException;
 import com.codeninjas.productservice.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,15 +21,15 @@ private final ProductService productService;
 
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> updateById(@PathVariable String id, @RequestBody Product product) {
+    public ResponseEntity<?> updateById(@PathVariable String id, @Valid @RequestBody Product product) throws ProductServiceException {
         productService.updateProduct(id ,product);
-        return new ResponseEntity<String>("Updated",HttpStatus.OK);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> deleteById(@PathVariable String id) {
         productService.deleteProduct(id);
-        return new  ResponseEntity<String>("Deleted", HttpStatus.OK);
+        return new  ResponseEntity<String>(HttpStatus.OK);
 
     }
 

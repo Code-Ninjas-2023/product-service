@@ -1,6 +1,7 @@
 package com.codeninjas.productservice.service;
 
 import com.codeninjas.productservice.domain.Product;
+import com.codeninjas.productservice.exception.ProductServiceException;
 import com.codeninjas.productservice.repository.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void updateProduct() {
+    public void updateProduct() throws ProductServiceException {
         Product newProduct = new Product();
         Mockito.when(productRepository.findById(any())).thenReturn(Optional.ofNullable(product));
         newProduct.setId("1123");

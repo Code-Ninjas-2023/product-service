@@ -1,6 +1,8 @@
 package com.codeninjas.productservice.service;
 
 import com.codeninjas.productservice.domain.Product;
+import com.codeninjas.productservice.exception.ProductServiceErrorHandler;
+import com.codeninjas.productservice.exception.ProductServiceException;
 import com.codeninjas.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,8 +29,8 @@ public class ProductServiceImpl implements ProductService{
 
 
     @Override
-    public Product updateProduct(String id, Product product) {
-        Product newProduct = productRepository.findById(id).get();
+    public Product updateProduct(String id, Product product) throws ProductServiceException {
+        Product newProduct = productRepository.findById(id).orElseThrow(() -> new ProductServiceException("Product not found"));
         newProduct.setId(id);
         newProduct.setName(product.getName());
         newProduct.setDescription(product.getDescription());
