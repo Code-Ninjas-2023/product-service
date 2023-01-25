@@ -23,8 +23,11 @@ public class Product {
     private String id;
 
     @NotNull(message = "Name is a required field")
-    @NotBlank
+    @NotBlank(message = "name shouldn't be blank")
     private String name;
+
     private String description;
+
+    @NotNull(message = "price is a required field")
     private BigDecimal price;
 }
