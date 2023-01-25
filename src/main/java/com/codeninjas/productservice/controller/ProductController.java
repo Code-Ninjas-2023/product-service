@@ -23,13 +23,13 @@ private final ProductService productService;
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> updateById(@PathVariable String id, @Valid @RequestBody Product product) throws ProductServiceException {
         productService.updateProduct(id ,product);
-        return new ResponseEntity<String>("Updated",HttpStatus.OK);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> deleteById(@PathVariable String id) {
         productService.deleteProduct(id);
-        return new  ResponseEntity<String>("Deleted", HttpStatus.OK);
+        return new  ResponseEntity<String>(HttpStatus.OK);
 
     }
 
