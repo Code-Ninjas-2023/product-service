@@ -59,6 +59,7 @@ public class ProductServiceImplTest {
     public void givenUpdateProductThrowsException() throws ProductServiceException {
         Mockito.when(productRepository.findById(any())).thenReturn(Optional.empty());
         assertThrows(ProductServiceException.class, () -> { productService.updateProduct(any(), product); });
+
     }
 
     @Test
