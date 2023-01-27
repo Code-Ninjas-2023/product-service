@@ -16,6 +16,9 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring.data.mongodb>3.0.0</spring.data.mongodb>
+		<spring.actuator>3.0.0</spring.actuator>
+		<spring.validation>3.0.0</spring.validation>
+		<spring.starter.web>3.0.0</spring.starter.web>
 
 	</properties>
 	<dependencies>
@@ -27,14 +30,17 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>${spring.actuator}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.starter.web}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>${spring.validation}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
