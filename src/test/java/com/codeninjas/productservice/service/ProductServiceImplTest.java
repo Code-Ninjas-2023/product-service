@@ -92,9 +92,16 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void getProductById() {
+    public void getProductByIdIsSuccessful() throws ProductServiceException {
         String productId = "1123";
         when(productRepository.findById(anyString())).thenReturn(Optional.ofNullable(product));
         productService.getProductById(productId);
-        verify(productRepository, times(1)).findById(productId);    }
+        verify(productRepository, times(1)).findById(productId);
+    }
+
+    @Test
+    public void getProductByIdThrowsException() throws ProductServiceException {
+        when(productRepository.findById(anyString())).thenReturn(Optional.empty());
+        assertThrows(ProductServiceException.class, () -> {productService.getProductById(anyString());});
+    }
 }

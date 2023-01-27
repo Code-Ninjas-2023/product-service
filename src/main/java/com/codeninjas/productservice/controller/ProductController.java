@@ -34,7 +34,7 @@ private final ProductService productService;
     }
 
     @GetMapping("{id}")
-    public Product getProductsById(@PathVariable String id){
+    public Product getProductsById(@PathVariable String id) throws ProductServiceException{
         return productService.getProductById(id);
     }
 
