@@ -42,12 +42,9 @@ jobs:
       run: mvn clean install
 
     - name: Publish to Docker Hub
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: codeninjas23/product-service
-        tags: ${{github.run_number}}
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
+        docker push codeninjas23/product-service${{github.run_number}}
       
     - name: Post to a Slack channel
       id: slack
