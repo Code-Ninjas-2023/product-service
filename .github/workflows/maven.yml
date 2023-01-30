@@ -19,26 +19,33 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      DOCKER_REPOSITORY: codeninjas23 # name of Docker Hub ID
+      IMAGE_NAME: product-service
+      IMAGE_TAG: ${{ github.run_number }} #GITHUB_RUN_NUMBER
+
     steps:
-    - uses: actions/checkout@v3
+
+    - name: Git Checkout
+      uses: actions/checkout@v3
+
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
+        server-id: docker.io
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD
+
     - name: Build with Maven
       run: mvn clean install
 
     - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v2
-      with:
-        image: codeninjas23/product-service
-        tags: latest
-        registry: docker.io
-        dockerfile: Dockerfile
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      run: mvn package dockerfile:push --file product-service/pom.xml
+      env:
+        MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Post to a Slack channel
       id: slack
