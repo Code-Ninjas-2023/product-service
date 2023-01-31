@@ -1,12 +1,11 @@
 name: Build and push docker image
 
 on:
-  pull_request:
-    types: [closed]
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   build:
-    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
