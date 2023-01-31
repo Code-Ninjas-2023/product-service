@@ -1,0 +1,9 @@
+LICENSE
+VERSION
+README.md
+download
+docker-compose.*
+data
+docker
+tests
+!target/*.jar
