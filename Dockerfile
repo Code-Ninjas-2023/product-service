@@ -1,5 +1,5 @@
 FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} product-service.jar
-ENTRYPOINT ["java","-jar","/product-service.jar"]
 EXPOSE 8080
+WORKDIR /applications
+COPY target/product-service.jar /applications/product-service.jar
+ENTRYPOINT ["java","-jar", "product-service.jar"]
