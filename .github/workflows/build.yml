@@ -4,14 +4,11 @@
 name: CI Build
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    types: [opened]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
