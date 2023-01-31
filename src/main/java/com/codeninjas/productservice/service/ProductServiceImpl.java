@@ -1,14 +1,11 @@
 package com.codeninjas.productservice.service;
 
 import com.codeninjas.productservice.domain.Product;
-import com.codeninjas.productservice.exception.ProductServiceErrorHandler;
 import com.codeninjas.productservice.exception.ProductServiceException;
 import com.codeninjas.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
