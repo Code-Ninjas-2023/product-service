@@ -6,4 +6,6 @@ docker-compose.*
 data
 docker
 tests
+target
+*.jar
 !target/*.jar
