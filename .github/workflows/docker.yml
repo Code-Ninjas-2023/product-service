@@ -1,3 +1,5 @@
+# This workflow will build a Java project with Maven, and push a docker image to docker hub when pull request is merged.
+
 name: Build and push docker image
 
 on:
