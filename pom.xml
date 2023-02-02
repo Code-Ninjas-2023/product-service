@@ -20,7 +20,7 @@
 		<spring.validation>3.0.0</spring.validation>
 		<spring.starter.web>3.0.0</spring.starter.web>
 		<junit.version>4.13.2</junit.version>
-		<swagger.api>2.0.2</swagger.api>
+		<openapi.ui>2.0.2</openapi.ui>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>${swagger.api}</version>
+			<version>${openapi.ui}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
