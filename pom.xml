@@ -19,6 +19,8 @@
 		<spring.actuator>3.0.0</spring.actuator>
 		<spring.validation>3.0.0</spring.validation>
 		<spring.starter.web>3.0.0</spring.starter.web>
+		<junit.version>4.13.2</junit.version>
+		<openapi.ui>2.0.2</openapi.ui>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,7 +48,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.0.2</version>
+			<version>${openapi.ui}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -61,7 +63,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
